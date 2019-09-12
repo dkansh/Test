@@ -40,13 +40,13 @@ Private Sub CreateTimesheet(filePath As String)
     rowNum = InputTimesheet.Cells(7, 1).EntireColumn.Find(What:="*", SearchOrder:=xlRows, SearchDirection:=xlPrevious, LookIn:=xlValues).Row
     
     InputTimesheet.Range("A7:A" & rowNum).Copy TSWorksheet.Range("A1")
-    InputTimesheet.Range("B7:B" & rowNum).Copy TSWorksheet.Range("B1")
+    InputTimesheet.Range("C7:C" & rowNum).Copy TSWorksheet.Range("B1")
     
     numberOfSheets = InputWorkbook.Sheets.Count
     
     For counter = 1 To numberOfSheets
         Set InputTimesheet = InputWorkbook.Worksheets("Sheet" & counter)
-        InputTimesheet.Range("C7:C" & rowNum).Copy TSWorksheet.Cells(1, counter + 2)
+        InputTimesheet.Range("I7:I" & rowNum).Copy TSWorksheet.Cells(1, counter + 2)
     Next
     
     InputWorkbook.Close False
